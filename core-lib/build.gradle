@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+def depend_android = rootProject.ext.depend_android
+def depend_lib = rootProject.ext.depend_lib
+
+android {
+    compileSdkVersion depend_android["compileSdkVersion"]
+    buildToolsVersion depend_android["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion depend_android["minSdkVersion"]
+        targetSdkVersion depend_android["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+kapt {
+    generateStubs = true
+    arguments {
+        arg("moduleName",project.getName())
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile depend_lib["junit"]
+    compile depend_lib["appcompat-v7"]
+    compile depend_lib["design"]
+    compile depend_lib["constraint"]
+    compile depend_lib["kotlin-stdlib"]
+    compile depend_lib["anko-common"]
+    compile depend_lib["rxandroid"]
+    compile depend_lib["rxkotlin"]
+    compile depend_lib["rxlifecycle-kotlin"]
+    compile depend_lib["converter-gson"]
+    compile depend_lib["rxjava2-adapter"]
+    compile depend_lib["okhttp"]
+    compile depend_lib["okhttp-ws"]
+    compile depend_lib["logging-interceptor"]
+    compile depend_lib["glide"]
+    compile depend_lib["timber"]
+    compile depend_lib["leakCanary"]
+    compile depend_lib["hawk"]
+    compile depend_lib["stetho"]
+    compile depend_lib["stetho-okhttp3"]
+}

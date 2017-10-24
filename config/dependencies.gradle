@@ -1,0 +1,65 @@
+def supportVersion = "26.0.0-alpha1"
+def constraintVersion = "1.0.2"
+def junitVersion = "4.12"
+def kotlinVersion = "1.1.4"
+def ankoVersion = "0.10.1"
+def rxKotlinVersion = "2.0.2"
+def rxAndroidVersion = "2.0.1"
+def rxLifecycleKotlinVersion = "2.0.1"
+def timberVersion = "4.1.2"
+def leakCanaryVersion = "1.3.1"
+def retrofitGsonVersion = "2.1.0"
+def retrofitAdapterVersion = "1.0.0"
+def okhttpLibVersion = "3.4.2"
+def glideVersion = "3.8.0"
+def hawkVersion = "2.0.1"
+def stethoVerison = "1.3.1"
+
+project.ext {
+    depend_android = [
+        compileSdkVersion: 26,
+        buildToolsVersion: "26.0.1",
+        applicationId    : "com.coderpig.app.zombie",
+        minSdkVersion    : 15,
+        targetSdkVersion : 26,
+        versionCode      : 1,
+        versionName      : "0.1.0"
+    ]
+
+    depend_lib = [
+        "appcompat-v7"        : "com.android.support:appcompat-v7:${supportVersion}",
+        "design"              : "com.android.support:design:${supportVersion}",
+        "constraint"          : "com.android.support.constraint:constraint-layout:${constraintVersion}",
+        "junit"               : "junit:junit:${junitVersion}",
+
+        "kotlin-stdlib"       : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
+        "anko-common"         : "org.jetbrains.anko:anko-common:${ankoVersion}",
+
+
+        "rxandroid"           : "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}",
+        "rxkotlin"            : "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}",
+        "rxlifecycle-kotlin"  : "com.trello.rxlifecycle2:rxlifecycle-kotlin:${rxLifecycleKotlinVersion}",
+
+        "converter-gson"      : "com.squareup.retrofit2:converter-gson:${retrofitGsonVersion}",
+        "rxjava2-adapter"     : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${retrofitAdapterVersion}",
+
+        "okhttp"              : "com.squareup.okhttp3:okhttp:${okhttpLibVersion}",
+        "okhttp-ws"           : "com.squareup.okhttp3:okhttp-ws:${okhttpLibVersion}",
+        "logging-interceptor" : "com.squareup.okhttp3:logging-interceptor:${okhttpLibVersion}",
+
+        "glide"               : "com.github.bumptech.glide:glide:${glideVersion}",
+
+        "timber"              : "com.jakewharton.timber:timber:${timberVersion}",
+
+        "leakCanary"          : "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+
+        "hawk"                : "com.orhanobut:hawk:${hawkVersion}",
+
+        "stetho"              : "com.facebook.stetho:stetho:${stethoVerison}",
+
+        "stetho-okhttp3"      : "com.facebook.stetho:stetho-okhttp3:${stethoVerison}",
+    ]
+
+
+
+}

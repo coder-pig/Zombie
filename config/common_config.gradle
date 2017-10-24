@@ -1,0 +1,10 @@
+project.ext {
+    compileSdkVersion = 26
+    buildToolsVersion = "26.0.1"
+    applicationId = "com.coderpig.app.zombie"
+    minSdkVersion = 15
+    targetSdkVersion = 26
+
+    isDebug = true
+    isLib = false
+}
